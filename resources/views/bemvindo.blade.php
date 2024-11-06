@@ -24,6 +24,9 @@
                 <li>Plano Coletivo Empresarial</li>
                 <li>Plano Coletivo por Adesão</li>
             </ul>
+            <a href="{{ route('comprar.planos') }}" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-200 text-lg">
+                Comprar Planos
+            </a>
         </div>
 
         <!-- Seção de Benefícios -->
@@ -44,7 +47,7 @@
                 necessidades.
             </p>
             <button onclick="window.location.href='{{ route('compararPlanos') }}'"
-                class="text-white bg-teal-500 hover:bg-teal-600 px-4 py-2 mt-4 rounded">
+                class="text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-2 mt-4 rounded">
                 Clique aqui para comparar os planos
             </button>
         </div>
@@ -57,7 +60,7 @@
                 para você.
             </p>
             <button onclick="window.location.href='{{ route('pesquisarPlanos') }}'"
-                class="text-white bg-teal-500 hover:bg-teal-600 px-4 py-2 mt-4 rounded">
+                class="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 mt-4 rounded">
                 Clique aqui para pesquisar os planos
             </button>
         </div>
@@ -70,7 +73,7 @@
                 Você pode abrir um ticket de suporte ou consultar a seção de FAQ para respostas rápidas.
             </p>
             <button onclick="window.location.href='{{ route('suporte') }}'"
-                class="text-white bg-teal-500 hover:bg-teal-600 px-4 py-2 mt-4 rounded">
+                class="text-white bg-red-500 hover:bg-red-600 px-4 py-2 mt-4 rounded">
                 Acessar Suporte
             </button>
         </div>

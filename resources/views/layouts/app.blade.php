@@ -12,12 +12,24 @@
 <body>
     <div class="min-h-screen bg-gray-100 flex flex-col">
         <!-- Header -->
-        <header class="bg-teal-600 ">
-            <div class="container mx-auto">
-                <a href="{{ route('welcome') }}">
+        <header class="bg-teal-600">
+            <div class="container mx-auto flex justify-between items-center py-4">
+                <a href="{{ route('bemvindo') }}">
                     <i class="fa-solid fa-hand-holding-medical text-6xl text-blue-500"
-                        style="font-size: 50px; color: rgb(220 38 38);"></i>
+                       style="font-size: 50px; color: rgb(220 38 38);"></i>
                 </a>
+                
+                <!-- Navbar (Exibida apenas se a página não for 'bemvindo') -->
+                @if (Route::currentRouteName() !== 'bemvindo')
+                    <nav class="flex space-x-4 items-center">
+                        <a href="{{ route('comprar.planos') }}" class="text-black hover:text-gray-300">Comprar Planos</a>
+                        <a href="{{ route('compararPlanos') }}" class="text-black hover:text-gray-300">Planos de Saúde</a>
+                        <a href="{{ route('suporte') }}" class="text-black hover:text-gray-300">Suporte</a>
+                        
+                        <a href="{{ route('perfil') }}" class="text-black hover:text-gray-300">Minha Conta</a>
+                        
+                    </nav>
+                @endif
             </div>
         </header>
 
@@ -27,7 +39,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-teal-600 ">
+        <footer class="bg-teal-600 text-white text-center py-4">
             <p>&copy; 2024 Saúde+. Todos os direitos reservados.</p>
         </footer>
     </div>

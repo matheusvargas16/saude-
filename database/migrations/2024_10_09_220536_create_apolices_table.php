@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamp('alteracao')->nullable();
             $table->date('datainicio');
             $table->date('datafim');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relaciona ao usuário
+            $table->foreignId('plano_id')->constrained()->onDelete('cascade'); // Relaciona ao plano
             $table->timestamps();
         });
     }
@@ -30,4 +32,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('apolices');
     }
+    
 };

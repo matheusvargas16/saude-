@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function apolices()
+    {
+        return $this->hasMany(Apolice::class);
+    }
+
 }

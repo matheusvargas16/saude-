@@ -34,7 +34,7 @@
             <textarea name="mensagem" id="mensagem" required class="w-full px-4 py-2 border rounded-lg" rows="5" placeholder="Descreva seu problema"></textarea>
         </div>
 
-        <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition duration-300">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-teal-600 transition duration-300">
             Enviar Ticket
         </button>
     </form>

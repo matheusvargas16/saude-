@@ -18,4 +18,9 @@ class Plano extends Model
         'faixaetaria',
         'preco',
     ];
+    public function apolices()
+    {
+        return $this->hasMany(Apolice::class);
+    }
+
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\Apolice;
 use App\Models\Plano;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PlanoController extends Controller
 {
@@ -33,7 +36,49 @@ class PlanoController extends Controller
         return view('comparacao_resultado', compact('planosSelecionados'));
     }
 
+    public function finalizarCompra($id)
+    {
+        // Busca o plano pelo ID
+        $plano = Plano::findOrFail($id);
+        
+        // Retorna a view de finalização de compra
+        return view('finalizar-compra', compact('plano'));
+    }
 
+    public function confirmarCompra(Request $request, $id)
+    {
+        $user = Auth::user(); // Corrigido para usar Auth::user()
+        if (!$user) {
+            return redirect()->route('login')->withErrors(['msg' => 'É necessário estar logado para concluir a compra.']);
+        }
+
+        $plano = Plano::findOrFail($id);
+
+        // Cria a nova apólice
+        Apolice::create([
+            'user_id' => $user->id,
+            'plano_id' => $plano->id,
+        ]);
+
+        return redirect()->route('perfil')->with('success', 'Compra concluída com sucesso! Seu plano foi adicionado à sua conta.');
+    }
+
+    public function showCompra()
+    {
+        // Carrega todos os planos para exibir na página de compra
+        $planos = Plano::all();
+        return view('comprar', compact('planos'));
+    }
+    public function detalhes($id)
+    {
+        // Busque o plano pelo ID
+        $plano = Plano::findOrFail($id);
+        
+        // Retorne a view de detalhes do plano com os dados do plano
+        return view('detalhes', compact('plano'));
+
+    }
+       
     public function showSearchForm(Request $request)
     {
         // Obtenha tipos e faixas etárias distintas
